@@ -23,6 +23,8 @@ def submit(request):
 		hashes = account.passhash_set
 		context = {"account": account}
 
+		request.session['account'] = account.id
+
 		return render(request, "testpass.html", context)
 
 	except rm.Account.DoesNotExist:
@@ -38,11 +40,12 @@ def submit(request):
 		)
 		return HttpResponse("Thanks %s, expect an email" % email)
 
-def testpass(request):
+def enterpass(request):
 	hashname = request.POST['hashname']
 	hhash = request.POST['hhash']
 
-	passhash = rm.PassHash(name=hashname, hhash=hhash)
+	account = rm.Account.objects.get(id=request.session['account'])
+	passhash = rm.PassHash(account=account, name=hashname, hhash=hhash, hashtype=settings.HASH_TYPE)
 	passhash.save()
 
 	return HttpResponse("hashname: %s, hhash: %s" % (hashname, hhash))

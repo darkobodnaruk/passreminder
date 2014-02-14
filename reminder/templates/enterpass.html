@@ -15,7 +15,7 @@
 				var passphrase = $('#passphrase').val();
 				var hashObj = new jsSHA(passphrase, "TEXT");
 				var hhash = hashObj.getHash("SHA-512", "HEX", 10);
-				$.post("/reminder/testpass", {hhash: hhash, hashname: hashname});
+				$.post("/reminder/enterpass", {hhash: hhash, hashname: hashname});
 			}
 		});
 
