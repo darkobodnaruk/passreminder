@@ -17,21 +17,26 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="../static/reminder/jquery-cookie/jquery.cookie.js"></script>
 <script>
-	$(document).ready(function() {
-		$('#passphrase').keypress(function(e) {
-			if (e.which == 13) {
-				e.preventDefault();
-				var passphrase = $('#passphrase').val();
-				var hashObj = new jsSHA(passphrase, "TEXT");
-				var calculated_hhash = hashObj.getHash("SHA-512", "HEX", 10);	
-				var hhash = $('#hashname').val()
-				if (hhash == calculated_hhash) {
-					alert("you win");
-				} else {
-					alert("no go");
-				}
+	function handleSubmit(e) {
+		if (e.which == 13) {
+			e.preventDefault();
+			var passphrase = $('#passphrase').val();
+			var hashObj = new jsSHA(passphrase, "TEXT");
+			var calculated_hhash = hashObj.getHash("SHA-512", "HEX", 10);	
+			var hhash = $('#hashname').val()
+			var result = $('#result');
+			if (hhash == calculated_hhash) {
+				alert('ok');
+				result.attr('class', 'ok');
+			} else {
+				alert('nok');
+				result.attr('class', 'nok');
 			}
-		});
+		}
+	}
+	$(document).ready(function() {
+		$('#passphrase').keypress(handleSubmit);
+		// $('input[type="submit"]').click(handleSubmit);
 	});
 </script>
 
@@ -42,7 +47,7 @@
 	<div class="container">
 
 
-		<h1 class="title2 text-center">example@gmail.com</h1>
+		<h1 class="title2 text-center">{{account.email}}</h1>
 
 		<img class="center-img" src="../static/reminder/img/unlock.svg">
 
@@ -56,7 +61,7 @@
 <input type="textbox" name="passphrase" id="passphrase" autocomplete="off" placeholder="passphrase" value="" class="email"/>
 </div>
 
-<a href="pass.html"><div class="button"><input type="submit" value="TEST" class="enter" /> <img class="enter-img" src="../static/reminder/img/enter.svg"></div></a>
+<a href="pass.html"><div class="button"><input type="submit" value="TEST" class="enter" id="submit" /> <img class="enter-img" src="../static/reminder/img/enter.svg"></div></a>
 </form>
 
 	</div>
