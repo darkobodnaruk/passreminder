@@ -1,0 +1,30 @@
+<script src="../static/reminder/jsSHA-1.5.0/src/sha512.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="../static/reminder/jquery-cookie/jquery.cookie.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#passphrase').keypress(function(e) {
+			if (e.which == 13) {
+				e.preventDefault();
+				var passphrase = $('#passphrase').val();
+				var hashObj = new jsSHA(passphrase, "TEXT");
+				var calculated_hhash = hashObj.getHash("SHA-512", "HEX", 10);	
+				var hhash = $('#hashname').val()
+				if (hhash == calculated_hhash) {
+					alert("you win");
+				} else {
+					alert("no go");
+				}
+			}
+		});
+	});
+</script>
+
+<form action="" method="post">
+<select class="form-control" id="hashname">
+	{% for hash in account.passhash_set.all %}
+	  <option value="{{hash.hhash}}">{{hash.name}}</option>
+	{% endfor %}
+</select>
+<input type="textbox" name="passphrase" id="passphrase" value="" />
+</form>
