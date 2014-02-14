@@ -1,1 +1,5 @@
-test2
+<form action="{% url 'submit' %}" method="post">
+{% csrf_token %}
+<input type="textbox" name="email" id="email" value="" />
+<input type="submit" value="Go" />
+</form>
