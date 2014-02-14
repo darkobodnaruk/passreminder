@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/reminder/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../static/reminder/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+	<div class="container">
+
+
+		<h1 class="title2 text-center">example@gmail.com</h1>
+
+		<img class="center-img" src="../static/reminder/img/unlock.svg">
+
+		<select class="form-control">
+			  <option>name 1</option>
+			  <option>name 2</option>
+			  <option>name 3</option>
+		</select>
+		
+		<form action="{% url 'submit' %}" method="post" class="form">
+		{% csrf_token %}
+			 <div class="form-group">
+				<input type="textbox" name="email" id="email" value="" autocomplete="off" placeholder="passphrase" class="email"/>
+			<div>
+				<a href="pass.html"><div class="button"><input type="submit" value="TEST" class="enter" /> <img class="enter-img" src="../static/reminder/img/enter.svg"></div></a>
+
+		</form>
+
+	</div>
+	
+</body>
+
+</html>
+
+
