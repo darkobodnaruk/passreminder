@@ -59,7 +59,8 @@ def submit(request):
 		# html_content = "Go to our <a href=\"%s?confirmation_code=%s\">passphrase entry</a> page to input your passphrase." % (request.build_absolute_uri('email_confirmation'), confirmation_code)
 		template = loader.get_template("email_confirmation.html")
 		url = request.build_absolute_uri('email_confirmation') + "?confirmation_code=" + confirmation_code
-		html_content = template.render(Context({"url": url}))
+		context = Context({"url": url, "imgurl": request.build_absolute_uri('/static/reminder/img/unlock.svg')})
+		html_content = template.render(context)
 		# html_content = render(request, "email_confirmation.html", context)
 		text_content = html_content
 		message = EmailMultiAlternatives(subject, text_content, ffrom, to)

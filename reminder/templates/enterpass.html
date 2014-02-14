@@ -28,8 +28,9 @@
 				var passphrase = $('#passphrase').val();
 				var hashObj = new jsSHA(passphrase, "TEXT");
 				var hhash = hashObj.getHash("SHA-512", "HEX", 10);
-				$.post("/reminder/enterpass", {hhash: hhash, hashname: hashname});
-				window.location.href = "/reminder/testpass";
+				$.post("/reminder/enterpass", {hhash: hhash, hashname: hashname}).done(function(data){
+					window.location.href = "/reminder/testpass";
+				});
 			}
 		});
 
