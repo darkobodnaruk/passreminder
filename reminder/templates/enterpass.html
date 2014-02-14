@@ -1,4 +1,17 @@
-{% for hash in account.passhash_set.all %}
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/reminder/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../static/reminder/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+	{% for hash in account.passhash_set.all %}
 	{{hash}}
 	<br />
 {% endfor %}
@@ -36,11 +49,29 @@
 	});
 </script>
 
-<form action="" method="post">
-Name:
-<input type="textbox" name="hashname" id="hashname" value="" />
-<br />
+</head>
 
-Passphrase:
-<input type="textbox" name="passphrase" id="passphrase" value="" />
+<body>
+
+	<div class="container">
+
+<h1 class="title2 text-center">exemple@gmail.com</h1>
+
+		<img class="center-img" src="../static/reminder/img/unlock.svg">
+
+<form action="" method="post" class="form">
+<div class="form-grouptop">
+<input type="textbox" name="hashname" id="hashname" autocomplete="off" placeholder="name" value="" class="email" />
+</div>
+
+<div class="form-group">
+<input type="textbox" name="passphrase" id="passphrase" autocomplete="off" placeholder="passphrase" value="" class="email"  />
+</div>
+<a href="#"><div class="button"><input type="submit" value="CONFIRME" class="enter" /> <img class="enter-img" src="../static/reminder/img/enter.svg"></div></a>
 </form>
+
+	</div>
+	
+</body>
+
+</html>
