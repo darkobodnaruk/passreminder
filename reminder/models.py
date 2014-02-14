@@ -5,6 +5,7 @@ class Account(models.Model):
 	confirmed = models.BooleanField(default=False)
 	created_dt = models.DateTimeField(auto_now_add=True)
 	updated_dt = models.DateTimeField(auto_now=True)
+	confirmation_code = models.CharField(max_length=100)
 
 	def __unicode__(self):
 		return self.email

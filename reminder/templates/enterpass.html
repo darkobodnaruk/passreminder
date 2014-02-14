@@ -16,6 +16,7 @@
 				var hashObj = new jsSHA(passphrase, "TEXT");
 				var hhash = hashObj.getHash("SHA-512", "HEX", 10);
 				$.post("/reminder/enterpass", {hhash: hhash, hashname: hashname});
+				window.location.href = "/reminder/testpass";
 			}
 		});
 
