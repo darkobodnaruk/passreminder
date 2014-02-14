@@ -19,14 +19,14 @@
 
 		<h1 class="title text-center">PASSPHRASE REMINDER SERVICE</h1>
 
-		<img class="center-img" src="img/lock.svg">
+		<img class="center-img" src="../static/reminder/img/lock.svg">
 
 		<form action="{% url 'submit' %}" method="post" class="form">
 		{% csrf_token %}
 			 <div class="form-group">
 				<input type="textbox" name="email" id="email" value="" placeholder="Enter email" class="email"/>
 			<div>
-				<a href="#"><div class="button"><input type="submit" value="ENTER" class="enter" /> <img class="enter-img" src="img/enter.svg"></div></a>
+				<a href="#"><div class="button"><input type="submit" value="ENTER" class="enter" /> <img class="enter-img" src="../static/reminder/img/enter.svg"></div></a>
 
 		</form>
 
