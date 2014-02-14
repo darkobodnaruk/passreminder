@@ -20,6 +20,16 @@ body{
 	font-family: 'Open sans',arial, sans-serif;
 }
 
+.title2{
+
+  margin-top: 80px;
+  margin-bottom: 50px;
+  font-size: 36px;
+  color: #2A678C;
+  font-family: 'Open sans',arial, sans-serif;
+
+}
+
 .center-img{
 	display: block;
 	margin: 20px auto;
@@ -37,6 +47,10 @@ body{
 
 :focus {
 outline: -webkit-focus-ring-color 0px;
+}
+
+.form-group{
+  margin-top: 40px;
 }
 
 .email{

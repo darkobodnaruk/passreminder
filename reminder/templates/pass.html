@@ -17,16 +17,20 @@
 	<div class="container">
 
 
-		<h1 class="title text-center">PASSPHRASE REMINDER SERVICE</h1>
+		<h1 class="title2 text-center">exemple@gmail.com</h1>
 
-		<img class="center-img" src="../static/reminder/img/lock.svg">
+		<img class="center-img" src="../static/reminder/img/unlock.svg">
 
 		<form action="{% url 'submit' %}" method="post" class="form">
 		{% csrf_token %}
-			 <div class="form-group">
-				<input type="textbox" name="email" id="email" value="" autocomplete="off" placeholder="Enter email" class="email"/>
+
+			 <div class="form-grouptop">
+				<input type="textbox" name="email" id="email" value="" autocomplete="off" placeholder="name" class="email"/>
 			<div>
-				<a href="pass.html"><div class="button"><input type="submit" value="ENTER" class="enter" /> <img class="enter-img" src="../static/reminder/img/enter.svg"></div></a>
+				<div class="form-group">
+				<input type="textbox" name="email" id="email" value="" autocomplete="off" placeholder="passphrase" class="email"/>
+			<div>
+				<a href="#"><div class="button"><input type="submit" value="CONFIRME" class="enter" /> <img class="enter-img" src="../static/reminder/img/enter.svg"></div></a>
 
 		</form>
 
