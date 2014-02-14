@@ -1,0 +1,115 @@
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+	background: #5EA4BF;
+	font-family: 'Open sans',arial, sans-serif;
+}
+
+
+
+.title{
+	margin-top: 80px;
+  margin-bottom: 50px;
+	font-size: 36px;
+	color: #f2f2f2;
+	font-family: 'Open sans',arial, sans-serif;
+}
+
+.center-img{
+	display: block;
+	margin: 20px auto;
+
+}
+
+.form{
+	margin: 0 auto;
+	min-width: 300px;
+    width: 100%;
+    max-width: 500px;
+	
+}
+
+
+:focus {
+outline: -webkit-focus-ring-color 0px;
+}
+
+.email{
+	
+    background-color: #5EA4BF;
+    border-bottom:solid 3px #f2f2f2;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0; 
+    color: #f2f2f2;
+    height: 50px;
+    min-width: 300px;
+    width: 100%;
+    max-width: 500px;
+    font-size: 31px;
+    opacity: 0.8;
+
+}
+
+.email:hover{
+
+	opacity: 1;
+}
+
+.enter{
+	text-align: center;
+	background-color: #5EA4BF;
+    border:0;
+    color: #f2f2f2;
+    height: 50px;
+    font-size: 31px;
+    float: left;
+
+}
+
+.button{
+	margin: 40px auto;
+	min-width: 300px;
+    width: 100%;
+    max-width: 600px;
+	display: inline-block;
+	opacity: 0.8;
+	-webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover{
+	opacity: 1;
+}
+
+.enter-img{
+	display: block;
+	margin: 0 auto;
+	float: left;
+	margin-left: 10px;
+	margin-top: -7px;
+}
+
+::-webkit-input-placeholder {
+   color: #2A678C;
+   font-size: 31px;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: red;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: red;  
+}
+
+:-ms-input-placeholder {  
+   color: red;  
+}

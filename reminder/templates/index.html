@@ -1,5 +1,39 @@
-<form action="{% url 'submit' %}" method="post">
-{% csrf_token %}
-<input type="textbox" name="email" id="email" value="" />
-<input type="submit" value="Go" />
-</form>
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/reminder/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../static/reminder/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+
+	<div class="container">
+
+
+		<h1 class="title text-center">PASSPHRASE REMINDER SERVICE</h1>
+
+		<img class="center-img" src="img/lock.svg">
+
+		<form action="{% url 'submit' %}" method="post" class="form">
+		{% csrf_token %}
+			 <div class="form-group">
+				<input type="textbox" name="email" id="email" value="" placeholder="Enter email" class="email"/>
+			<div>
+				<a href="#"><div class="button"><input type="submit" value="ENTER" class="enter" /> <img class="enter-img" src="img/enter.svg"></div></a>
+
+		</form>
+
+	</div>
+	
+</body>
+
+</html>
+
+
