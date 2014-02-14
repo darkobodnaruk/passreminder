@@ -1,4 +1,19 @@
-<script src="../static/reminder/jsSHA-1.5.0/src/sha512.js"></script>
+
+
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+	<link rel="stylesheet" type="text/css" href="../static/reminder/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../static/reminder/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+	<script src="../static/reminder/jsSHA-1.5.0/src/sha512.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="../static/reminder/jquery-cookie/jquery.cookie.js"></script>
 <script>
@@ -20,11 +35,32 @@
 	});
 </script>
 
-<form action="" method="post">
+</head>
+
+<body>
+
+	<div class="container">
+
+
+		<h1 class="title2 text-center">example@gmail.com</h1>
+
+		<img class="center-img" src="../static/reminder/img/unlock.svg">
+
+<form action="" method="post" class="form">
 <select class="form-control" id="hashname">
 	{% for hash in account.passhash_set.all %}
 	  <option value="{{hash.hhash}}">{{hash.name}}</option>
 	{% endfor %}
 </select>
-<input type="textbox" name="passphrase" id="passphrase" value="" />
+<div class="form-group">
+<input type="textbox" name="passphrase" id="passphrase" autocomplete="off" placeholder="passphrase" value="" class="email"/>
+</div>
+
+<a href="pass.html"><div class="button"><input type="submit" value="TEST" class="enter" /> <img class="enter-img" src="../static/reminder/img/enter.svg"></div></a>
 </form>
+
+	</div>
+	
+</body>
+
+</html>
