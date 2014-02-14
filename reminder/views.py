@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.mail import send_mail
 import reminder.models as rm
 from django.conf import settings
@@ -25,7 +25,7 @@ def submit(request):
 
 		request.session['account'] = account.id
 
-		return render(request, "testpass.html", context)
+		return redirect("testpass")
 
 	except rm.Account.DoesNotExist:
 		# first-time user
@@ -41,11 +41,22 @@ def submit(request):
 		return HttpResponse("Thanks %s, expect an email" % email)
 
 def enterpass(request):
-	hashname = request.POST['hashname']
-	hhash = request.POST['hhash']
+	if request.method == 'GET':
+		context = {}
+		return render(request, "enterpass.html", context)
 
+	elif request.method == 'POST':
+		hashname = request.POST['hashname']
+		hhash = request.POST['hhash']
+
+		account = rm.Account.objects.get(id=request.session['account'])
+		passhash = rm.PassHash(account=account, name=hashname, hhash=hhash, hashtype=settings.HASH_TYPE)
+		passhash.save()
+
+		return HttpResponse("hashname: %s, hhash: %s" % (hashname, hhash))
+
+def testpass(request):
 	account = rm.Account.objects.get(id=request.session['account'])
-	passhash = rm.PassHash(account=account, name=hashname, hhash=hhash, hashtype=settings.HASH_TYPE)
-	passhash.save()
 
-	return HttpResponse("hashname: %s, hhash: %s" % (hashname, hhash))
+	context = {"account": account}
+	return render(request, "testpass.html", context)
