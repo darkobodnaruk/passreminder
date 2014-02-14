@@ -10,7 +10,7 @@ class Account(models.Model):
 		return self.email
 
 class PassHash(models.Model):
-	user = models.ForeignKey(Account)
+	account = models.ForeignKey(Account)
 	name = models.CharField(max_length=100)
 	hashtype = models.CharField(max_length=100)
 	hhash = models.CharField(max_length=200)

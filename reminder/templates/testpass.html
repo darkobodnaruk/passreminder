@@ -1,0 +1,43 @@
+{% for hash in account.passhash_set.all %}
+	{{hash}}
+	<br />
+{% endfor %}
+
+<script src="../static/reminder/jsSHA-1.5.0/src/sha512.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="../static/reminder/jquery-cookie/jquery.cookie.js"></script>
+<script>
+	$(document).ready(function() {
+		$('#passphrase').keypress(function(e) {
+			if (e.which == 13) {
+				e.preventDefault();
+				var hashname = $('#hashname').val();
+				var passphrase = $('#passphrase').val();
+				var hashObj = new jsSHA(passphrase, "TEXT");
+				var hhash = hashObj.getHash("SHA-512", "HEX", 10);
+				$.post("/reminder/testpass", {hhash: hhash, hashname: hashname});
+			}
+		});
+
+		var csrftoken = $.cookie('csrftoken');
+
+		function csrfSafeMethod(method) {
+		    // these HTTP methods do not require CSRF protection
+		    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+		}
+		$.ajaxSetup({
+		    crossDomain: false, // obviates need for sameOrigin test
+		    beforeSend: function(xhr, settings) {
+		        if (!csrfSafeMethod(settings.type)) {
+		            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+		        }
+		    }
+		});
+	});
+</script>
+
+<form action="" method="post">
+<input type="textbox" name="hashname" id="hashname" value="" />
+<br />
+<input type="textbox" name="passphrase" id="passphrase" value="" />
+</form>
