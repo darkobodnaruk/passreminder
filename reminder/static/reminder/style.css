@@ -10,7 +10,32 @@ body{
 	font-family: 'Open sans',arial, sans-serif;
 }
 
+.blank{
+  position: absolute;
+  height: 50px;
+  width:50px;
+  background: #5EA4BF;
+  margin: 35px 450px;
+}
 
+
+.ok{
+  position: absolute;
+  margin: 40px 455px;
+  background :url("img/ok.svg");
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+}
+
+.no-ok{
+  position: absolute;
+  margin: 40px 455px;
+  background :url("img/no.svg");
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+}
 
 .title{
 	margin-top: 80px;
@@ -44,10 +69,6 @@ body{
 	
 }
 
-
-:focus {
-outline: -webkit-focus-ring-color 0px;
-}
 
 .form-group{
   margin-top: 40px;
