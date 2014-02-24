@@ -24,7 +24,7 @@
 		<form action="{% url 'submit' %}" method="post" class="form">
 		{% csrf_token %}
 			 <div class="form-group">
-				<input type="textbox" name="email" id="email" value="" autocomplete="off" placeholder="Enter email" class="email"/>
+				<input type="textbox" name="email" id="email" value="" autocomplete="off" placeholder="Enter email" class="email" autofocus/>
 			<div>
 				<a href="pass.html"><div class="button"><input type="submit" value="ENTER" class="enter" /> <img class="enter-img" src="../static/reminder/img/enter.svg"></div></a>
 

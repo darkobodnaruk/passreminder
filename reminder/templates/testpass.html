@@ -52,16 +52,15 @@
 		<img class="center-img" src="../static/reminder/img/unlock.svg">
 
 <form action="" method="post" class="form">
-<select class="form-control" id="hashname">
+<select class="form-control arrow" id="hashname">
 	{% for hash in account.passhash_set.all %}
 	  <option value="{{hash.hhash}}">{{hash.name}}</option>
 	{% endfor %}
 </select>
-<div class="blenk"></div>
 
 
 <div class="form-group">
-<input type="textbox" name="passphrase" id="passphrase" autocomplete="off" placeholder="passphrase" value="" class="email"/>
+<input type="textbox" name="passphrase" id="passphrase" autocomplete="off" placeholder="passphrase" value="" class="email blank"/>
 </div>
 
 <a href="pass.html"><div class="button"><input type="submit" value="TEST" class="enter" /> <img class="enter-img" src="../static/reminder/img/enter.svg"></div></a>
